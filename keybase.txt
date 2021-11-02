@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/miguell
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://epical.xyz
+  * I am miguell (https://keybase.io/miguell) on keybase.
+  * I have a public key ASALX5cGyhnO5OuAIrhNvmi5RmT38HB9gLGUSs2W9jfp8Ao
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012073c0de333e6fd896a673be267ee47e3c600b6b4dbe47cadc7ff9a26e9e2ce1280a",
+      "host": "keybase.io",
+      "kid": "01200b5f9706ca19cee4eb8022b84dbe68b94664f7f0707d80b1944acd96f637e9f00a",
+      "uid": "190ff01afe3305125a06cf5c74b64719",
+      "username": "miguell"
+    },
+    "merkle_root": {
+      "ctime": 1635891694,
+      "hash": "aa55594b77595fdd29351fd87c7e05b1669ef680483a72f2aca8a1a91d5655af9cf875244aded16229f92bfbdf88b429207217327934d1dd208c9853189b0e91",
+      "hash_meta": "d1fe7f17a5fb49891f11f286248b1627ad2f6f8480cbc9a7264a50dfda2286b1",
+      "seqno": 21124238
+    },
+    "service": {
+      "entropy": "APeR6N5GjANiim0eIuX87D1O",
+      "hostname": "epical.xyz",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.8.0"
+  },
+  "ctime": 1635891762,
+  "expire_in": 504576000,
+  "prev": "08ab8a62e15f3139daeb50b3b149588a55692f1bad194eaf9f9689efd128a335",
+  "seqno": 23,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgC1+XBsoZzuTrgCK4Tb5ouUZk9/BwfYCxlErNlvY36fAKp3BheWxvYWTESpcCF8QgCKuKYuFfMTna61CzsUlYilVpLxutGU6vn5aJ79EoozXEIDFN+9jfBPF0jyCaQ5TeEuYmI63ETT+GvHctmArksvGjAgHCo3NpZ8RA9ekBq/o7zY78kMvvQ3qt75YHb2lzDx7mvLd4LG0U9KRMkwe7BlnPA58oGtZcxuyl+KtOlvsNFW01wfN+9nBLD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEUivHaGO88JR8YJgXuIrZP1sTHEkHu/FC5amAC7ZW47o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/miguell
+
+==================================================================
