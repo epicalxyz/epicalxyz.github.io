@@ -6,6 +6,28 @@
     <link rel="icon" type="image/x-icon" sizes="32x32" href="fav.ico" />
     <link rel="stylesheet" href="style.css" />
     <title>Epical.XYZ</title>
+    <script>
+      (function (f, a, t, h, o, m) {
+        a[h] =
+          a[h] ||
+          function () {
+            (a[h].q = a[h].q || []).push(arguments);
+          };
+        (o = f.createElement("script")),
+          (m = f.getElementsByTagName("script")[0]);
+        o.async = 1;
+        o.src = t;
+        o.id = "fathom-script";
+        m.parentNode.insertBefore(o, m);
+      })(
+        document,
+        window,
+        "//fathomonepical.herokuapp.com/tracker.js",
+        "fathom"
+      );
+      fathom("set", "siteId", "TOUTK");
+      fathom("trackPageview");
+    </script>
   </head>
   <body>
     <div class="main">
