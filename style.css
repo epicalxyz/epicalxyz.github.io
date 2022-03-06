@@ -34,6 +34,19 @@ p {
   background-color: #333333;
   color: aliceblue;
   padding: 30px;
+  height: 120px;
+}
+.grid-item-empty {
+  border: 1px dashed rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #333333;
+  color: aliceblue;
+  padding: 30px;
+  height: 120px;
 }
 .grid-item:hover {
   background-color: #3d3d3d;
