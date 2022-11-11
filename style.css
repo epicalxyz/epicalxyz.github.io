@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1d1f20;
+  color: gray;
+}
+.main {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  color: #686868;
+  text-decoration: none;
+}
+a:hover {
+  color: #7c7c7c;
+}
+p {
+  font-size: x-small;
+}
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #333333;
+  color: aliceblue;
+  padding: 30px;
+  height: 120px;
+}
+.grid-item-empty {
+  border: 1px dashed rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #333333;
+  color: aliceblue;
+  padding: 30px;
+  height: 120px;
+}
+.grid-item:hover {
+  background-color: #3d3d3d;
+}
+.cards {
+  margin: 0 auto;
+  display: grid;
+}
+@media (min-width: 300px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 500px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.button {
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  max-width: 300px;
+  position: relative;
+  z-index: 1000;
+  margin: auto;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #888888;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
