@@ -1,15 +1,37 @@
 {
   "names": {
-    "miguel": "19abb374696e1c363d9b5c9d5b2ccf54e4db8c409532080f94b34c516e6a237a"
+    "miguell": "19abb374696e1c363d9b5c9d5b2ccf54e4db8c409532080f94b34c516e6a237a"
   },
   "relays": {
     "19abb374696e1c363d9b5c9d5b2ccf54e4db8c409532080f94b34c516e6a237a": [
-      "wss://relay.nostr.band",
-      "wss://offchain.pub",
+      "wss://relayable.org",
       "wss://nos.lol",
       "wss://relay.shitforce.one",
+      "wss://nostr.lu.ke",
+      "wss://nostr.mom",
+      "wss://nostr.bitcoiner.social",
+      "wss://nostr.mouton.dev",
+      "wss://no.str.cr",
+      "wss://offchain.pub",
+      "wss://nostr-pub.wellorder.net",
+      "wss://relay.nsecbunker.com",
+      "wss://nostr-relay.derekross.me",
+      "wss://booger.pro",
+      "wss://nostr-relay.nokotaro.com",
+      "wss://nostr.mutinywallet.com",
+      "wss://relay.current.fyi",
+      "wss://relay.damus.io",
+      "wss://relay.nostr.band",
+      "wss://nostr.einundzwanzig.space",
+      "wss://relay.snort.social",
+      "wss://relay.mostr.pub",
       "wss://relay.plebstr.com",
-      "wss://relayable.org"
+      "wss://pleb.cloud",
+      "wss://relay.nostrplebs.com",
+      "wss://nostr.fmt.wiz.biz",
+      "wss://bitcoiner.social",
+      "wss://nostr.oxtr.dev",
+      "wss://welcome.nostr.wine"
     ]
   }
 }
