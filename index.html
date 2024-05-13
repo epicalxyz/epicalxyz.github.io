@@ -1,13 +1,45 @@
+<title="index. html"> 
 <!DOCTYPE html>
 <html lang="en_EN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Refresh"
-      content="0; url='https://snort.social/p/npub1rx4mxarfdcwrv0vmtjw4ktx02njdhrzqj5eqsru5kdx9zmn2ydaqxlcuqe'"
-    />
-    <title>epical.xyz</title>
-  </head>
-  <body></body>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <style>
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .mask {
+          position: relative;
+          width: 512px;
+          height: 512px;
+          -webkit-mask-image: url(img/epicalxyz.png);
+          mask-image: url(img/epicalxyz.png);
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+        }
+      </style>
+    </head>
+    <body style="background-color: #000">
+      <div class="container">
+        <div class="mask">
+          <img id="random-image" alt="Image" style="width: 512px; height: 512px; object-fit: cover" />
+        </div>
+      </div>
+      <script>
+        // Get a list of all the image files in the img folder
+        let images = [];
+        for (let i = 0; i <= 9; i++) {
+          images.push(`img/${i}.png`);
+        }
+
+        // Select a random image from the list
+        let randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Set the src attribute of the img tag to the selected random image
+        document.getElementById("random-image").src = randomImage;
+      </script>
+    </body>
 </html>
