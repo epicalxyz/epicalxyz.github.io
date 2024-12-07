@@ -1,45 +1,105 @@
-<title="index. html"> 
 <!DOCTYPE html>
-<html lang="en_EN">
+<html lang="en">
     <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <style>
-        .container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
-        .mask {
-          position: relative;
-          width: 512px;
-          height: 512px;
-          -webkit-mask-image: url(img/epicalxyz.png);
-          mask-image: url(img/epicalxyz.png);
-          -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-        }
-      </style>
+        <title>epical.xyz</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+            }
+            .mask {
+                position: relative;
+                width: 512px;
+                height: 512px;
+                -webkit-mask-image: url(img/epicalxyz.png);
+                mask-image: url(img/epicalxyz.png);
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                overflow: hidden;
+            }
+            .background-container {
+                position: absolute;
+                width: 1024px;
+                height: 1024px;
+                left: -256px;
+                top: -256px;
+            }
+            #random-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                animation: moveInCircle 70s linear infinite, scaleEffect 35s ease-in-out infinite;
+            }
+            .email-link {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: rgba(255, 255, 255, 0.295);
+                text-decoration: none;
+                font-family: monospace;
+                font-size: 14px;
+                z-index: 10;
+                transition: color 0.3s ease;
+            }
+            .email-link:hover {
+                color: rgba(255, 255, 255, 0.8);
+            }
+            @keyframes moveInCircle {
+                0% {
+                    transform: translate(100px, 0);
+                }
+                25% {
+                    transform: translate(0, 100px);
+                }
+                50% {
+                    transform: translate(-100px, 0);
+                }
+                75% {
+                    transform: translate(0, -100px);
+                }
+                100% {
+                    transform: translate(100px, 0);
+                }
+            }
+            @keyframes scaleEffect {
+                0%, 100% {
+                    transform: translate(100px, 0) scale(1);
+                }
+                25% {
+                    transform: translate(0, 100px) scale(1.1);
+                }
+                50% {
+                    transform: translate(-100px, 0) scale(1);
+                }
+                75% {
+                    transform: translate(0, -100px) scale(1.1);
+                }
+            }
+        </style>
     </head>
-    <body style="background-color: #000">
-      <div class="container">
-        <div class="mask">
-          <img id="random-image" alt="Image" style="width: 512px; height: 512px; object-fit: cover" />
+    <body style="background-color: #000; margin: 0; overflow: hidden;">
+        <div class="container">
+            <div class="mask">
+                <div class="background-container">
+                    <img id="random-image" alt="Background Image" />
+                </div>
+            </div>
+            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#105;&#102;&#116;&#104;&#45;&#107;&#105;&#116;&#101;&#45;&#98;&#114;&#101;&#97;&#116;&#104;&#64;&#100;&#117;&#99;&#107;&#46;&#99;&#111;&#109;" class="email-link">Contact</a>
         </div>
-      </div>
-      <script>
-        // Get a list of all the image files in the img folder
-        let images = [];
-        for (let i = 0; i <= 9; i++) {
-          images.push(`img/${i}.png`);
-        }
-
-        // Select a random image from the list
-        let randomImage = images[Math.floor(Math.random() * images.length)];
-
-        // Set the src attribute of the img tag to the selected random image
-        document.getElementById("random-image").src = randomImage;
-      </script>
+        <script>
+            let images = [];
+            for (let i = 0; i <= 9; i++) {
+                images.push(`img/${i}.png`);
+            }
+            let randomImage = images[Math.floor(Math.random() * images.length)];
+            document.getElementById("random-image").src = randomImage;
+        </script>
     </body>
 </html>
