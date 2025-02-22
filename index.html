@@ -6,13 +6,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             position: relative;
             overflow: hidden;
+            height: auto;
         }
 
         .mask {
@@ -44,7 +54,7 @@
         }
 
         .email-link {
-            position: absolute;
+            position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
@@ -112,14 +122,17 @@
                 font-size: 12px;
                 bottom: 15px;
             }
+
+            .page-wrapper {
+                gap: 2rem;
+                padding: 1.5rem 0;
+            }
         }
 
         .cards-section {
-            padding: 2rem;
-            position: absolute;
-            bottom: 60px;
-            left: 0;
-            right: 0;
+            position: relative;
+            padding: 0 2rem;
+            width: 100%;
             display: flex;
             justify-content: center;
         }
@@ -178,40 +191,47 @@
             .cards-section {
                 bottom: 100px;
             }
+
+            .page-wrapper {
+                gap: 1.5rem;
+                padding: 1rem 0;
+            }
         }
     </style>
 </head>
 
 <body style="background-color: #000; margin: 0; overflow: hidden;">
-    <div class="container">
-        <div class="mask">
-            <div class="background-container">
-                <img id="random-image" alt="Background Image" />
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="mask">
+                <div class="background-container">
+                    <img id="random-image" alt="Background Image" />
+                </div>
             </div>
         </div>
-        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#105;&#102;&#116;&#104;&#45;&#107;&#105;&#116;&#101;&#45;&#98;&#114;&#101;&#97;&#116;&#104;&#64;&#100;&#117;&#99;&#107;&#46;&#99;&#111;&#109;"
-            class="email-link">Contact</a>
-    </div>
-    <div class="cards-section">
-        <div class="cards-container">
-            <div class="card">
-                <h3>Projects</h3>
-                <p>View my work</p>
-            </div>
-            <div class="card">
-                <h3>About</h3>
-                <p>Learn more</p>
-            </div>
-            <div class="card">
-                <h3>Blog</h3>
-                <p>Read articles</p>
-            </div>
-            <div class="card">
-                <h3>Contact</h3>
-                <p>Get in touch</p>
+        <div class="cards-section">
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Projects</h3>
+                    <p>View my work</p>
+                </div>
+                <div class="card">
+                    <h3>About</h3>
+                    <p>Learn more</p>
+                </div>
+                <div class="card">
+                    <h3>Blog</h3>
+                    <p>Read articles</p>
+                </div>
+                <div class="card">
+                    <h3>Contact</h3>
+                    <p>Get in touch</p>
+                </div>
             </div>
         </div>
     </div>
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#105;&#102;&#116;&#104;&#45;&#107;&#105;&#116;&#101;&#45;&#98;&#114;&#101;&#97;&#116;&#104;&#64;&#100;&#117;&#99;&#107;&#46;&#99;&#111;&#109;"
+        class="email-link">Contact</a>
     <script>
         let images = [];
         for (let i = 0; i <= 9; i++) {
