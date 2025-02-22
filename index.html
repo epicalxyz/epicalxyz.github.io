@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head section remains the same until the modified styles -->
 
 <head>
     <title>epical.xyz</title>
@@ -7,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css" rel="stylesheet">
     <style>
+        /* Previous styles remain the same until .section-title */
         :root {
-            --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            --card-gradient: linear-gradient(145deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
             --card-border: rgba(255, 255, 255, 0.1);
-            --hover-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+            --hover-gradient: linear-gradient(145deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.90) 100%);
         }
 
         * {
@@ -33,7 +35,8 @@
             flex-direction: column;
             align-items: center;
             padding: 4rem 1.5rem;
-            gap: 5rem;
+            gap: 2rem;
+            /* Reduced from 5rem to 2rem */
             position: relative;
         }
 
@@ -82,6 +85,22 @@
             padding: 0 1rem;
         }
 
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: left;
+            width: 100%;
+            max-width: 1400px;
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+            /* Added margin-bottom to control spacing specifically */
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Rest of the styles remain the same */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -90,6 +109,7 @@
         }
 
         .card {
+            height: 250px;
             background: var(--card-gradient);
             border: 1px solid var(--card-border);
             border-radius: 16px;
@@ -99,6 +119,9 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
         .card::before {
@@ -113,13 +136,34 @@
             transition: opacity 0.3s ease;
         }
 
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
         .card:hover {
             transform: translateY(-8px);
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        .card:hover .card-bg {
+            opacity: 0.4;
+            transform: scale(1.05);
+        }
+
         .card:hover::before {
             opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
         }
 
         .card h3 {
@@ -127,14 +171,14 @@
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
             font-weight: 600;
-            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .card p {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
             font-size: 0.95rem;
-            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .email-link {
@@ -194,12 +238,19 @@
         @media (max-width: 768px) {
             .page-wrapper {
                 padding: 3rem 1rem;
-                gap: 3rem;
+                gap: 1.5rem;
+                /* Reduced from 3rem to 1.5rem for mobile */
             }
 
             .mask {
                 width: min(512px, 85vw);
                 height: min(512px, 85vw);
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+                /* Reduced margin for mobile */
             }
 
             .cards-container {
@@ -223,25 +274,38 @@
                 </div>
             </div>
         </div>
+        <h2 class="section-title">Projects</h2>
         <div class="cards-section">
             <div class="cards-container">
-                <a href="https://maybedown.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
-                    <h3>MaybeDown</h3>
-                    <p>Checks whether a website is down or not.</p>
-                </a>
                 <a href="https://los.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
-                    <h3>Line Of Sight</h3>
-                    <p>Interactive web application for visualizing line-of-sight topology between two points on the map.
-                    </p>
+                    <img src="/los.png" alt="Line Of Sight Preview" class="card-bg" />
+                    <div class="card-content">
+                        <h3>Line Of Sight</h3>
+                        <p>Interactive web application for visualizing line-of-sight topology between two points on the
+                            map.</p>
+                    </div>
                 </a>
                 <a href="https://askolio.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
-                    <h3>Askolio</h3>
-                    <p>Interactive quiz application that supports multiple languages and provides a customizable
-                        learning experience.</p>
+                    <img src="/askolio.png" alt="Askolio Preview" class="card-bg" />
+                    <div class="card-content">
+                        <h3>Askolio</h3>
+                        <p>Interactive quiz application that supports multiple languages and provides a customizable
+                            learning experience.</p>
+                    </div>
                 </a>
                 <a href="https://freshtechhub.com/" target="_blank" rel="noopener noreferrer" class="card">
-                    <h3>FreshTechHub</h3>
-                    <p>Stay updated with the latest tech news and compare CPUs.</p>
+                    <img src="/fth.png" alt="FreshTechHub Preview" class="card-bg" />
+                    <div class="card-content">
+                        <h3>FreshTechHub</h3>
+                        <p>Stay updated with the latest tech news and compare CPUs.</p>
+                    </div>
+                </a>
+                <a href="https://maybedown.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                    <img src="/maybedown.png" alt="MaybeDown Preview" class="card-bg" />
+                    <div class="card-content">
+                        <h3>MaybeDown</h3>
+                        <p>Checks whether a website is down or not.</p>
+                    </div>
                 </a>
             </div>
         </div>
