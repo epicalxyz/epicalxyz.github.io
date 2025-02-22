@@ -5,25 +5,44 @@
     <title>epical.xyz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css" rel="stylesheet">
     <style>
+        :root {
+            --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --hover-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #13151a 0%, #090a0c 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
         .page-wrapper {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 4rem;
-            padding: 4rem 1rem;
-            box-sizing: border-box;
+            padding: 4rem 1.5rem;
+            gap: 5rem;
+            position: relative;
         }
 
         .container {
+            position: relative;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
         }
 
         .mask {
@@ -37,6 +56,8 @@
             -webkit-mask-size: contain;
             mask-size: contain;
             overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .background-container {
@@ -52,44 +73,109 @@
             height: 100%;
             object-fit: cover;
             animation: moveInCircle 70s linear infinite, scaleEffect 35s ease-in-out infinite;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .cards-section {
+            width: 100%;
+            max-width: 1400px;
+            padding: 0 1rem;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-gradient);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hover-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            position: relative;
         }
 
         .email-link {
             position: fixed;
-            bottom: 20px;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.295);
+            color: rgba(255, 255, 255, 0.4);
             text-decoration: none;
-            font-family: monospace;
-            font-size: 14px;
-            z-index: 10;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
         .email-link:hover {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         @keyframes moveInCircle {
             0% {
-                transform: translate(5vw, 0);
+                transform: translate(3%, -3%) scale(1.05);
             }
 
             25% {
-                transform: translate(0, 5vw);
+                transform: translate(-3%, -3%) scale(1.05);
             }
 
             50% {
-                transform: translate(-5vw, 0);
+                transform: translate(-3%, 3%) scale(1.05);
             }
 
             75% {
-                transform: translate(0, -5vw);
+                transform: translate(3%, 3%) scale(1.05);
             }
 
             100% {
-                transform: translate(5vw, 0);
+                transform: translate(3%, -3%) scale(1.05);
             }
         }
 
@@ -97,106 +183,38 @@
 
             0%,
             100% {
-                transform: translate(5vw, 0) scale(1);
-            }
-
-            25% {
-                transform: translate(0, 5vw) scale(1.1);
+                filter: brightness(1) saturate(1);
             }
 
             50% {
-                transform: translate(-5vw, 0) scale(1);
-            }
-
-            75% {
-                transform: translate(0, -5vw) scale(1.1);
+                filter: brightness(1.1) saturate(1.1);
             }
         }
 
         @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 3rem 1rem;
+                gap: 3rem;
+            }
+
             .mask {
                 width: min(512px, 85vw);
                 height: min(512px, 85vw);
             }
 
-            .email-link {
-                font-size: 12px;
-                bottom: 15px;
-            }
-
-            .page-wrapper {
-                gap: 3rem;
-                padding: 3rem 1rem;
-            }
-
             .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .cards-section {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 0 1rem;
-            box-sizing: border-box;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 1.5rem;
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s ease, background 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .card h3 {
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0 0 0.5rem 0;
-            font-family: monospace;
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            color: rgba(255, 255, 255, 0.6);
-            margin: 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 480px) {
-            .cards-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
 
-            .cards-section {
-                bottom: 100px;
-            }
-
-            .page-wrapper {
-                gap: 2rem;
-                padding: 2rem 1rem;
-                justify-content: flex-start;
+            .card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 
-<body style="background-color: #000; margin: 0; overflow: hidden;">
+<body>
     <div class="page-wrapper">
         <div class="container">
             <div class="mask">
@@ -207,22 +225,24 @@
         </div>
         <div class="cards-section">
             <div class="cards-container">
-                <div class="card">
-                    <h3>Projects</h3>
-                    <p>View my work</p>
-                </div>
-                <div class="card">
-                    <h3>About</h3>
-                    <p>Learn more</p>
-                </div>
-                <div class="card">
-                    <h3>Blog</h3>
-                    <p>Read articles</p>
-                </div>
-                <div class="card">
-                    <h3>Contact</h3>
-                    <p>Get in touch</p>
-                </div>
+                <a href="https://maybedown.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                    <h3>MaybeDown</h3>
+                    <p>Checks whether a website is down or not.</p>
+                </a>
+                <a href="https://los.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                    <h3>Line Of Sight</h3>
+                    <p>Interactive web application for visualizing line-of-sight topology between two points on the map.
+                    </p>
+                </a>
+                <a href="https://askolio.epical.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                    <h3>Askolio</h3>
+                    <p>Interactive quiz application that supports multiple languages and provides a customizable
+                        learning experience.</p>
+                </a>
+                <a href="https://freshtechhub.com/" target="_blank" rel="noopener noreferrer" class="card">
+                    <h3>FreshTechHub</h3>
+                    <p>Stay updated with the latest tech news and compare CPUs.</p>
+                </a>
             </div>
         </div>
     </div>
