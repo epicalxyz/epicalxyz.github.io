@@ -113,6 +113,72 @@
                 bottom: 15px;
             }
         }
+
+        .cards-section {
+            padding: 2rem;
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card h3 {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0 0 0.5rem 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-section {
+                bottom: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-section {
+                bottom: 100px;
+            }
+        }
     </style>
 </head>
 
@@ -125,6 +191,26 @@
         </div>
         <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#105;&#102;&#116;&#104;&#45;&#107;&#105;&#116;&#101;&#45;&#98;&#114;&#101;&#97;&#116;&#104;&#64;&#100;&#117;&#99;&#107;&#46;&#99;&#111;&#109;"
             class="email-link">Contact</a>
+    </div>
+    <div class="cards-section">
+        <div class="cards-container">
+            <div class="card">
+                <h3>Projects</h3>
+                <p>View my work</p>
+            </div>
+            <div class="card">
+                <h3>About</h3>
+                <p>Learn more</p>
+            </div>
+            <div class="card">
+                <h3>Blog</h3>
+                <p>Read articles</p>
+            </div>
+            <div class="card">
+                <h3>Contact</h3>
+                <p>Get in touch</p>
+            </div>
+        </div>
     </div>
     <script>
         let images = [];
