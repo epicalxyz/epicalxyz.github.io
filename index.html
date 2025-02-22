@@ -12,8 +12,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 3rem;
-            padding: 2rem 0;
+            gap: 4rem;
+            padding: 4rem 1rem;
+            box-sizing: border-box;
         }
 
         .container {
@@ -22,7 +23,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            height: auto;
+            width: 100%;
         }
 
         .mask {
@@ -124,17 +125,21 @@
             }
 
             .page-wrapper {
-                gap: 2rem;
-                padding: 1.5rem 0;
+                gap: 3rem;
+                padding: 3rem 1rem;
+            }
+
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         .cards-section {
-            position: relative;
-            padding: 0 2rem;
             width: 100%;
             display: flex;
             justify-content: center;
+            padding: 0 1rem;
+            box-sizing: border-box;
         }
 
         .cards-container {
@@ -142,7 +147,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             max-width: 1200px;
-            width: 90%;
+            width: 100%;
         }
 
         .card {
@@ -173,16 +178,6 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cards-section {
-                bottom: 80px;
-            }
-        }
-
         @media (max-width: 480px) {
             .cards-container {
                 grid-template-columns: 1fr;
@@ -193,8 +188,9 @@
             }
 
             .page-wrapper {
-                gap: 1.5rem;
-                padding: 1rem 0;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                justify-content: flex-start;
             }
         }
     </style>
